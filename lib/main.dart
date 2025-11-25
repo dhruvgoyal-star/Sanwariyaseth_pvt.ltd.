@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
       elevation: 5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: InkWell(
-        onTap: () {},
+        onTap: () => openPage(context, title),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -85,5 +85,25 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+void openPage(BuildContext context, String title) {
+  if (title == "Grocery") {
+    Navigator.push(context, MaterialPageRoute(builder: (_) => GroceryScreen()));
+  } else if (title == "Home Essential") {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (_) => HomeEssentialScreen()));
+  } else if (title == "Puja Items") {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (_) => PujaScreen()));
+  } else if (title == "Clothes") {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (_) => ClothesScreen()));
+  } else if (title == "Website (Shop)") {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (_) => WebsiteScreen()));
+  } else if (title == "Social Media") {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (_) => SocialMediaScreen()));
   }
 }
